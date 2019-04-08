@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Ring from './components/rings';
+import RingList from './components/ringList';
 
 class App extends Component {
   render() {
@@ -13,14 +12,11 @@ class App extends Component {
               <a className="nav-link active" href="#">Home</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Rings</a>
-            </li>
-            <li className="nav-item">
               <a className="nav-link" href="#">Login</a>
             </li>
           </ul>
         </header>
-        <Ring></Ring>
+        <RingList></RingList>
       </div>
     );
   }

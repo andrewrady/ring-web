@@ -68,34 +68,45 @@ class RingList extends Component {
       <div className="container">
           <div className="row justify-content-md-center">
             <div className="col col-lg-9">
-              <div className="nav nav-tabs" id="nav-tab" role="tablist">
-                <a 
-                  className={this.state.currentView === 'current' ? "nav-item nav-link active" : "nav-item nav-link"} 
-                  onClick={this.changeView.bind(this, 'current')} 
-                  href="#current"
-                >Active</a>
-                <a 
-                  className={"nav-item nav-link " + this.state.currentView === 'upcoming' ? "nav-item nav-link active" : "nav-item nav-link"} 
-                  onClick={this.changeView.bind(this, 'upcoming')} 
-                  id="nav-profile-tab" 
-                  data-toggle="tab" 
-                  href="#upcoming"
-                  >Upcoming</a>
-              </div>
-              <table className="table">
-                <thead className="thead-light">
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Age</th>
-                    <th scope="col">Rank</th>
-                    <th scope="col">Division</th>
-                    <th scope="col">Gender</th>
-                  </tr>
-                </thead>
-                <tbody>
-                { this.renderCurrentRing() }
-                </tbody>
-              </table>
+            {
+              this.state.isLoading ?
+                <div className="d-flex justify-content-center">
+                  <div className="spinner-border text-primary" role="status">
+                    <span className="sr-only">Loading...</span>
+                  </div>
+                </div>
+              : 
+                <div>
+                  <div className="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a 
+                      className={ this.state.currentView === 'current' ? "nav-item nav-link active" : "nav-item nav-link" } 
+                      onClick={ this.changeView.bind(this, 'current') } 
+                      href="#current"
+                    >Active</a>
+                    <a 
+                      className={ this.state.currentView === 'upcoming' ? "nav-item nav-link active" : "nav-item nav-link" } 
+                      onClick={ this.changeView.bind(this, 'upcoming') } 
+                      id="nav-profile-tab" 
+                      data-toggle="tab" 
+                      href="#upcoming"
+                      >Upcoming</a>
+                  </div>
+                  <table className="table">
+                    <thead className="thead-light">
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Rank</th>
+                        <th scope="col">Division</th>
+                        <th scope="col">Gender</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    { this.renderCurrentRing() }
+                    </tbody>
+                  </table>
+                </div>
+            }
             </div>
           </div>
         </div>
